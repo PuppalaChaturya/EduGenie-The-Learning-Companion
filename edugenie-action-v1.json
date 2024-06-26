@@ -1,0 +1,3453 @@
+{
+  "name": "EduGenie-action",
+  "type": "action",
+  "counts": {
+    "actions": 5,
+    "intents": 2,
+    "entities": 9,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 0
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "7d5d75f9-ada6-4ede-b132-7f8b2dd74e04",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_39496",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_346",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hello Buddy! How can I help You?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_346",
+            "next_step": "step_744"
+          },
+          {
+            "step": "step_744",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Select one of the following:"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Homework help",
+                      "value": {
+                        "input": {
+                          "text": "Homework help"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Study Schedule",
+                      "value": {
+                        "input": {
+                          "text": "Study Schedule"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Quiz",
+                      "value": {
+                        "input": {
+                          "text": "Quiz"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Subject Tutors",
+                      "value": {
+                        "input": {
+                          "text": "Subject Tutors"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Progress Tracking",
+                      "value": {
+                        "input": {
+                          "text": "Progress Tracking"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Exam Preparation",
+                      "value": {
+                        "input": {
+                          "text": "Exam Preparation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Motivation",
+                      "value": {
+                        "input": {
+                          "text": "Motivation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Career guidance",
+                      "value": {
+                        "input": {
+                          "text": "Career guidance"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No Queries",
+                      "value": {
+                        "input": {
+                          "text": "No Queries"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_31982",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_744",
+            "next_step": "step_107"
+          },
+          {
+            "step": "step_107",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Choose your homework subject"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Math",
+                      "value": {
+                        "input": {
+                          "text": "Math"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Science",
+                      "value": {
+                        "input": {
+                          "text": "Science"
+                        }
+                      }
+                    },
+                    {
+                      "label": "English",
+                      "value": {
+                        "input": {
+                          "text": "English"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_12847",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_107",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Homework help",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_242"
+          },
+          {
+            "step": "step_242",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How can I help you in math"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Solve a problem",
+                      "value": {
+                        "input": {
+                          "text": "Solve a problem"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Teach you basics",
+                      "value": {
+                        "input": {
+                          "text": "Teach you basics"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_25324",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_242",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "value": "Math",
+                  "from_entity": "entity_12847"
+                }
+              ]
+            },
+            "next_step": "step_182"
+          },
+          {
+            "step": "step_182",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Click this link and it will guide you to the AI Math Solver:\n\n[Click Here](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiY8_2b3_mGAxXrNHsHHfYYDlIYABABGgJ0bQ&ase=2&gclid=EAIaIQobChMImPP9m9_5hgMV6zR7Bx32GA5SEAAYASAAEgLvnvD_BwE&ohost=www.google."
+                          },
+                          {
+                            "scalar": "com&cid=CAASJeRokXPsOcKr3xfSaPJDjCTLmtcb3Eccccb6ILAwHA8FWyUbe_4&sig=AOD64_3QA07odsZXFsFJL50OiX3THYO9xw&q&nis=4&adurl&ved=2ahUKEwjtsvmb3_mGAxWksFYBHdnPCbMQ0Qx6BAgMEAE)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                }
+              ]
+            },
+            "variable": "step_182",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "value": "Solve a problem",
+                  "from_entity": "entity_25324"
+                }
+              ]
+            },
+            "next_step": "step_234"
+          },
+          {
+            "step": "step_234",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "This will help you learn basic math\n\n[Click Here](https://https://study.com/learn/basic-math.html#:~:text=Concepts%20included%20in%20basic%20math,are%20built%20upon%20and%20integrated.)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                }
+              ]
+            },
+            "variable": "step_234",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "value": "Teach you basics",
+                  "from_entity": "entity_25324"
+                }
+              ]
+            },
+            "next_step": "step_667"
+          },
+          {
+            "step": "step_667",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How can I help you in Science"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Concept Explanation",
+                      "value": {
+                        "input": {
+                          "text": "Concept Explanation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Ask a question",
+                      "value": {
+                        "input": {
+                          "text": "Ask a question"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Fun Facts",
+                      "value": {
+                        "input": {
+                          "text": "Fun Facts"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_47357",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_667",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "value": "Science",
+                  "from_entity": "entity_12847"
+                }
+              ]
+            },
+            "next_step": "step_441"
+          },
+          {
+            "step": "step_441",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Go through this link for Concept understanding\n\n[Click Here](https://study.com/academy/lesson/fundamental-scientific-concepts-patterns-structure-function.html#:~:text=Here%20are%20some%20examples%20of,concepts%20that%20are%20just%20ideas.)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                }
+              ]
+            },
+            "variable": "step_441",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "value": "Concept Explanation",
+                  "from_entity": "entity_47357"
+                }
+              ]
+            },
+            "next_step": "step_318"
+          },
+          {
+            "step": "step_318",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You can clarify [Here](https://study.com/academy/lesson/clarifying-questions-definition-examples.html)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                }
+              ]
+            },
+            "variable": "step_318",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "value": "Ask a question",
+                  "from_entity": "entity_47357"
+                }
+              ]
+            },
+            "next_step": "step_379"
+          },
+          {
+            "step": "step_379",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Fun Facts of Science are:\n\n1.An ice cube takes up about 9 percent more volume than the water used to make it.\n\n2. A lightning strike can reach a temperature of 30,000 C. or 54,000 F.\n\n3.Plants don't have any memory, but they have the ability to recognize their close relatives and upon doing so, they will work alongside each other to grow stronger.\n\n4.On Venus, it snows metal."
+                          },
+                          {
+                            "scalar": " Two types have been discovered so far: galena and bismuthinite.\n\n5.The human brain takes in 11 million individual pieces of information per second, but is only cognizant of roughly around 40.\n\n6.The deepest part of the ocean, the Marina Trench, is 36,200 feet down, or, the length of 25 Empire State Buildings stalked on top of one another.\n\nfor more [link](https://www.smslucknow.ac.in/blog-"
+                          },
+                          {
+                            "scalar": "details/20-interesting-science-facts)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                }
+              ]
+            },
+            "variable": "step_379",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "value": "Fun Facts",
+                  "from_entity": "entity_47357"
+                }
+              ]
+            },
+            "next_step": "step_227"
+          },
+          {
+            "step": "step_227",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "In what aspects would you like me to assist with"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Essay",
+                      "value": {
+                        "input": {
+                          "text": "Essay"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Reading Comprehension",
+                      "value": {
+                        "input": {
+                          "text": "Reading Comprehension"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_16472",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_227",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "value": "English",
+                  "from_entity": "entity_12847"
+                }
+              ]
+            },
+            "next_step": "step_308"
+          },
+          {
+            "step": "step_308",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The format of Essay is as follows:\n\nParts of an Essay\n**Introduction**\nThe introduction guides your reader into the paper by introducing the topic. It should begin with a hook that catches the reader’s interest. This hook could be a quote, an analogy, a question, etc. After getting the reader’s attention, the introduction should give some background information on the topic."
+                          },
+                          {
+                            "scalar": " The ideas within the introduction should be general enough for the reader to understand the main claim and gradually become more specific to lead into the thesis statement. (See the Introductions handout for further information.)\n**Thesis Statement**\nThe thesis statement concisely states the main idea or argument of the essay, sets limits on the topic,"
+                          },
+                          {
+                            "scalar": " and can indicate the organization of the essay. The thesis works as a road map for the entire essay, showing the readers what you have to say and which main points you will use to support your ideas. (See the Thesis Statements handout.)\n**Body**\nThe body of the essay supports the main points presented in the thesis."
+                          },
+                          {
+                            "scalar": " Each point is developed by one or more paragraphs and supported with specific details. These details can include support from research and experiences, depending on the assignment. In addition to this support, the author’s own analysis and discussion of the topic ties ideas together and draws conclusions that support the thesis."
+                          },
+                          {
+                            "scalar": " Refer to “Parts of a Paragraph” below for further information on writing effective body paragraphs.\n**Transitions**\nTransitions connect paragraphs to each other and to the thesis. They are used within and between paragraphs to help the paper flow from one topic to the next. These transitions can be one or two words (“first,” “next,” “in addition,” etc."
+                          },
+                          {
+                            "scalar": ") or one or two sentences that bring the reader to the next main point. The topic sentence of a paragraph often serves as a transition. (See the Transitions handout for further information.)\n**Conclusion**\nThe conclusion brings together all the main points of the essay."
+                          },
+                          {
+                            "scalar": " It refers back to the thesis statement and leaves readers with a final thought and sense of closure by resolving any ideas brought up in the essay. It may also address the implications of the argument. In the conclusion, new topics or ideas that\nwere not developed in the paper should not be introduced. (See the Conclusions handout for further information."
+                          },
+                          {
+                            "scalar": ")\n**Citations**\nIf your paper incorporates research, be sure to give credit to each source using in-text citations and a Works Cited/References/Bibliography page. Refer to the MLA Format, APA Format, or Turabian Format handout for help with this."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                }
+              ]
+            },
+            "variable": "step_308",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "value": "Essay",
+                  "from_entity": "entity_16472"
+                }
+              ]
+            },
+            "next_step": "step_856"
+          },
+          {
+            "step": "step_856",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Here is where you can go through reading comprehension\n\n[Here](https://englishforeveryone.org/Topics/Reading-Comprehension.html)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                }
+              ]
+            },
+            "variable": "step_856",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "value": "Reading Comprehension",
+                  "from_entity": "entity_16472"
+                }
+              ]
+            },
+            "next_step": "step_297"
+          },
+          {
+            "step": "step_297",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Tell me which subject do you like?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_297",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Study Schedule",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_276"
+          },
+          {
+            "step": "step_276",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Here is the best timetable for you:\n\n<br />\n\n\n\n\n  - **5:30 AM – 6:15 AM:** Rise and shine! Kick-start your day with a healthy breakfast. You can also try to engage in a short meditation or stretching session to feel more awake.\n  - **6:15 AM – 6:30 AM:** Grab a pen and paper or your digital notepad so that you can set your study goals for the day and specific tasks you need to accomplish.\n  -"
+                          },
+                          {
+                            "scalar": " **6:30 AM – 7:30 AM:** Time to exercise! You can do any form of physical activity, from light cardio (like walking) to lifting weights in the gym.\n  - **7:30 AM – 9:30 AM:** First study block (or attend your classes). Start your timer: 25-minute study with a 5-minute break, repeat 4x, then a long break — or use a [timer that automatically does it for you](http://flocus.com/).\n  -"
+                          },
+                          {
+                            "scalar": " **9:30 AM – 10:00 AM:** Take an extended break. Stretch, grab a snack, and breathe some fresh air. Look away from your screen to minimize eye strain.\n  - **10:00 AM – 12:00 PM:** Second study block (or attend your classes). Start your timer and finish another full Pomodoro session (25-minute study with a 5-minute break, repeat 4x, then a long break).\n  - **12:00 PM – 1:00 PM:** Lunch break!"
+                          },
+                          {
+                            "scalar": " This is the perfect time to refuel your body with nourishing food and prep for your afternoon study session.\n  - **1:00 PM – 3:00 PM**: Third study block (or attend your classes). Don’t forget to use techniques like active recall and mind mapping (more on that below) to reinforce the concepts you learned in the morning.\n  - **3:00 PM – 3:30 PM:** Time for another extended break."
+                          },
+                          {
+                            "scalar": " Why not walk to a nearby café for a change of scenery, or [go to a virtual café](https://gridfiti.com/websites-like-i-miss-my-cafe/)?\n  - **3:30 PM – 5:30 PM:** Final study block (or attend your classes). Use this final session to consolidate your learning and list areas requiring further attention.\n  - **5:30 PM – 9:30 PM:** Free time!"
+                          },
+                          {
+                            "scalar": " Reward yourself by unwinding and relaxing after a productive day. Pursue your hobbies, spend time with friends and family, or [watch a movie](https://gridfiti.com/study-motivation-movies/).\n  - **9:30 PM – 5:30 AM:** Get a good night’s rest to feel fully recharged the next day!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                }
+              ]
+            },
+            "variable": "step_276",
+            "condition": {
+              "exists": {
+                "variable": "step_297"
+              }
+            },
+            "next_step": "step_206"
+          },
+          {
+            "step": "step_206",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Answer questions. Are you ready?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_206",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Quiz",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_365"
+          },
+          {
+            "step": "step_365",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "[Click Here](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwj93oCN6_mGAxVMhUsFHaRiCOgYABABGgJzZg&ase=2&gclid=EAIaIQobChMI_d6Ajev5hgMVTIVLBR2kYgjoEAAYAiAAEgJI3PD_BwE&ohost=www.google.com&cid=CAASJeRorHg3OWMge50IplIDNNfuL1KJ-EOEX-G0nB8xIZ1ZPlf2GrY&sig=AOD64_2KeL_YK3vMbX7O6fyKy6r4xLUy8w&q&nis=4&adurl&ved=2ahUKEwibn_yM6_mGAxU-xzgGHZkhBtUQ0Qx6BAgHEAE)to start the quiz."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                }
+              ]
+            },
+            "variable": "step_365",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_167"
+          },
+          {
+            "step": "step_167",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Which Subject Tutor Do you want?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Core Subjects",
+                      "value": {
+                        "input": {
+                          "text": "Core Subjects"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Languages",
+                      "value": {
+                        "input": {
+                          "text": "Languages"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_47732",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_167",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Subject Tutors",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_348"
+          },
+          {
+            "step": "step_348",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Best Tutors for core Subjects:\n\n1.[Math](https://www.freepressjournal.in/ampstories/education/top-10-indian-maths-teacher-on-youtube#:~:text=Pawan%20Rao%3A%20He%20has%20783K,the%20competitive%20exams%20in%20India.)\n\n2.[Science](https://www.vedantu.com/online-tuition/science-tuition)\n\n3.[Social](https://www.e-hometutors.com/tutors/home-tutors-for-social-studies)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                }
+              ]
+            },
+            "variable": "step_348",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "value": "Core Subjects",
+                  "from_entity": "entity_47732"
+                }
+              ]
+            },
+            "next_step": "step_720"
+          },
+          {
+            "step": "step_720",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Best Tutors for Languages:\n\n1.[Telugu](https://preply.com/en/online/telugu-tutors)\n\n2.[Hindi](https://preply.com/en/online/hindi-tutors)\n\n3.[English](https://preply.com/en/online/english-tutors)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "variable": "step_348"
+                }
+              ]
+            },
+            "variable": "step_720",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "value": "Languages",
+                  "from_entity": "entity_47732"
+                }
+              ]
+            },
+            "next_step": "step_446"
+          },
+          {
+            "step": "step_446",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Are your total marks >50?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_446",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Progress Tracking",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_451"
+          },
+          {
+            "step": "step_451",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your progress is Good! You're on a roll! Your dedication and hard work are truly paying off. Keep up the fantastic effort you're on the path to greatness! Let's keep this momentum going and reach new heights together!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://thumbs.dreamstime.com/b/growing-bar-graphs-pie-chart-creative-abstract-business-success-financial-growth-development-concept-color-red-rising-37458504.jpg",
+                  "alt_text": "Progress",
+                  "description": "",
+                  "response_type": "image"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "variable": "step_348"
+                },
+                {
+                  "variable": "step_720"
+                },
+                {
+                  "variable": "step_446"
+                }
+              ]
+            },
+            "variable": "step_451",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_446"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_136"
+          },
+          {
+            "step": "step_136",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You're doing great, but I know you've got even more potential waiting to be unleashed! Imagine what you can achieve by pushing yourself just a bit further. Embrace the challenge, strive for excellence, and let's aim for new personal bests. You've got this let's make it happen together!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "variable": "step_348"
+                },
+                {
+                  "variable": "step_720"
+                },
+                {
+                  "variable": "step_446"
+                },
+                {
+                  "variable": "step_451"
+                }
+              ]
+            },
+            "variable": "step_136",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_446"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            },
+            "next_step": "step_296"
+          },
+          {
+            "step": "step_296",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Tips to get ready for your Examination:\n\n1.Start studying early\n\n2.Read through the entirety of your notes that will be on the exam.\n\n3.Get some good [notes](https://www.wikihow.com/Take-Notes).\n\n4.Ask your teacher about the test material.\n\n5.Re-read your notes. \n\n6.Take notes while you study.\n\n7.Review your syllabus. \n\n8.Write down the major topics and themes that you pulled out of the syllabus."
+                          },
+                          {
+                            "scalar": "\n\n9.Review study guides and sections.\n\n10.Re-read important selections of the textbook.\n\n11.Quiz yourself.\n\n12.Do practice questions. \n\n13.n the day of the exam, set your alarm at least two hours before the test.\n\n14.You should definitely get enough sleep before your big day.\n\n15.Wish yourself, All the very Best!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "variable": "step_348"
+                },
+                {
+                  "variable": "step_720"
+                },
+                {
+                  "variable": "step_446"
+                },
+                {
+                  "variable": "step_451"
+                },
+                {
+                  "variable": "step_136"
+                }
+              ]
+            },
+            "variable": "step_296",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Exam Preparation",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_114"
+          },
+          {
+            "step": "step_114",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hey there! I just wanted to take a moment to recognize the hard work you've been putting into your studies it's truly commendable. Every page you read, every problem you solve, and every note you take is a step towards your success. But guess what? I know you have even more potential just waiting to be unlocked. Think about your dreams and the goals you've set for yourself."
+                          },
+                          {
+                            "scalar": " Each study session brings you closer to them. Sometimes the journey might feel challenging, and that’s perfectly okay. Challenges are what make the successes so much sweeter. Remember, the difference between good and great is often just a little extra effort. Stay curious. Keep asking questions and seeking out new knowledge. Dive deeper into your subjects,"
+                          },
+                          {
+                            "scalar": " and don't be afraid to explore beyond the textbooks. Find what fascinates you and let that passion drive you forward. Break down your study goals into manageable pieces, and celebrate each milestone you achieve. You have the power to shape your future. Keep pushing your limits, stay focused, and never lose sight of why you started. Your dedication will pay off,"
+                          },
+                          {
+                            "scalar": " and the knowledge and skills you're gaining now will serve you for a lifetime. You've got this let's keep moving forward together!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "variable": "step_348"
+                },
+                {
+                  "variable": "step_720"
+                },
+                {
+                  "variable": "step_446"
+                },
+                {
+                  "variable": "step_451"
+                },
+                {
+                  "variable": "step_136"
+                },
+                {
+                  "variable": "step_296"
+                }
+              ]
+            },
+            "variable": "step_114",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Motivation",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_843"
+          },
+          {
+            "step": "step_843",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "[Click Here](https://m.economictimes.com/jobs/fresher/career-guidance-what-it-is-when-you-need-it-and-how-it-helps-shape-your-future/articleshow/99779913.cms#:~:text=Career%20guidance%20is%20a%20process,right%20path%20to%20achieve%20them.) for best career guidance portal."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "variable": "step_107"
+                },
+                {
+                  "variable": "step_242"
+                },
+                {
+                  "variable": "step_234"
+                },
+                {
+                  "variable": "step_667"
+                },
+                {
+                  "variable": "step_441"
+                },
+                {
+                  "variable": "step_318"
+                },
+                {
+                  "variable": "step_379"
+                },
+                {
+                  "variable": "step_227"
+                },
+                {
+                  "variable": "step_308"
+                },
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "variable": "step_297"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_206"
+                },
+                {
+                  "variable": "step_365"
+                },
+                {
+                  "variable": "step_167"
+                },
+                {
+                  "variable": "step_348"
+                },
+                {
+                  "variable": "step_720"
+                },
+                {
+                  "variable": "step_446"
+                },
+                {
+                  "variable": "step_451"
+                },
+                {
+                  "variable": "step_136"
+                },
+                {
+                  "variable": "step_296"
+                },
+                {
+                  "variable": "step_114"
+                }
+              ]
+            },
+            "variable": "step_843",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "Career guidance",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            },
+            "next_step": "step_252"
+          },
+          {
+            "step": "step_252",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank you for letting me be a part of your learning journey. Your dedication is inspiring, and I can't wait to see all the amazing things you'll achieve. Let's keep conquering those goals together—one step at a time. Here's to your bright future!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_252",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_744"
+                },
+                {
+                  "value": "No Queries",
+                  "from_entity": "entity_31982"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "EduGenie",
+        "action": "action_39496",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_39496_intent_46100"
+        },
+        "variables": [
+          {
+            "title": "Choose your homework subject",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_107",
+            "data_type": "any"
+          },
+          {
+            "title": "Hey there! I just wanted to take a moment to recognize the hard ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_114",
+            "data_type": "any"
+          },
+          {
+            "title": "You're doing great, but I know you've got even more potential wa",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_136",
+            "data_type": "any"
+          },
+          {
+            "title": "Which Subject Tutor Do you want?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_167",
+            "data_type": "any"
+          },
+          {
+            "title": "Click this link and it will guide you to the AI Math Solver: [Cl",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_182",
+            "data_type": "any"
+          },
+          {
+            "title": "Answer questions. Are you ready?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_206",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "In what aspects would you like me to assist with",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_227",
+            "data_type": "any"
+          },
+          {
+            "title": "This will help you learn basic math [Click Here](https://https:/",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_234",
+            "data_type": "any"
+          },
+          {
+            "title": "How can I help you in math",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_242",
+            "data_type": "any"
+          },
+          {
+            "title": "Thank you for letting me be a part of your learning journey. You",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_252",
+            "data_type": "any"
+          },
+          {
+            "title": "Here is the best timetable for you: <br /> - **5:30 AM – 6:15 AM",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_276",
+            "data_type": "any"
+          },
+          {
+            "title": "Tips to get ready for your Examination: 1.Start studying early 2",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_296",
+            "data_type": "any"
+          },
+          {
+            "title": "Tell me which subject do you like?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_297",
+            "data_type": "any"
+          },
+          {
+            "title": "The format of Essay is as follows: Parts of an Essay **Introduct",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_308",
+            "data_type": "any"
+          },
+          {
+            "title": "You can clarify [Here](https://study.com/academy/lesson/clarifyi",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_318",
+            "data_type": "any"
+          },
+          {
+            "title": "Hello Buddy! How can I help You?",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_346",
+            "data_type": "any"
+          },
+          {
+            "title": "Best Tutors for core Subjects: 1.[Math](https://www.freepressjou",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_348",
+            "data_type": "any"
+          },
+          {
+            "title": "Thank you for letting me be a part of your learning journey. You",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_361",
+            "data_type": "any"
+          },
+          {
+            "title": "[Click Here](https://www.googleadservices.com/pagead/aclk?sa=L&a",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_365",
+            "data_type": "any"
+          },
+          {
+            "title": "Fun Facts of Science are: 1.An ice cube takes up about 9 percent",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_379",
+            "data_type": "any"
+          },
+          {
+            "title": "Go through this link for Concept understanding [Click Here](http",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_441",
+            "data_type": "any"
+          },
+          {
+            "title": "Are your total marks >50?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_446",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Your progress is Good! You're on a roll! Your dedication and har",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_451",
+            "data_type": "any"
+          },
+          {
+            "title": "How can I help you in Science",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_667",
+            "data_type": "any"
+          },
+          {
+            "title": "Best Tutors for Languages: 1.[Telugu](https://preply.com/en/onli",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_720",
+            "data_type": "any"
+          },
+          {
+            "title": "Select one of the following:",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_744",
+            "data_type": "any"
+          },
+          {
+            "title": "[Click Here](https://m.economictimes.com/jobs/fresher/career-gui",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_843",
+            "data_type": "any"
+          },
+          {
+            "title": "Here is where you can go through reading comprehension [Here](ht",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_856",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "I would like to speak to someone"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_39496_intent_46100",
+        "examples": [
+          {
+            "text": "Hello! EduGenie"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_47732",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Languages",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Core Subjects",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_25324",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Solve a problem",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Teach you basics",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_47357",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Concept Explanation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Ask a question",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Fun Facts",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_16472",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Reading Comprehension",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Essay",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_31982",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Progress Tracking",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Exam Preparation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Motivation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "No Queries",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Career guidance",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Homework help",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Study Schedule",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Quiz",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Subject Tutors",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_12847",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "English",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Science",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Math",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 5,
+          "intents": 2,
+          "entities": 9,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 0
+        }
+      }
+    },
+    "variables": [],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "slot_filling": {
+          "enabled": false
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant 0f32c6cb-1621-4e28-a605-aebce1cdfb60",
+  "dialog_settings": {
+    "source_assistant": "a595c768-3993-4ee2-a3d8-524ddfa9ff19"
+  },
+  "created": "2024-06-26T19:18:14.294Z",
+  "updated": "2024-06-26T19:18:14.294Z",
+  "snapshot": "1",
+  "assistant_id": "0f32c6cb-1621-4e28-a605-aebce1cdfb60",
+  "assistant_references": [
+    {
+      "name": "EduGenie",
+      "assistant_id": "a595c768-3993-4ee2-a3d8-524ddfa9ff19",
+      "skill_reference": "actions skill"
+    }
+  ]
+}
